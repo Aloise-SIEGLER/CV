@@ -1,71 +1,221 @@
-const translations = {
-  fr: {
-    address: "31 Rue de Kiffis, 68480 Wolschwiller, France<br>Né le 07/11/1963 ",
-    contact: "Téléphone: +33 972 07 56 59<br>Mobile: +33 604 06 04 01<br>E-mail: aloise.siegler@gmail.com",
-    license_title: "Permis",
-    license: "Permis B — obtenu le 03/04/1982",
-    languages_title: "Langues",
-    languages: "Français — langue maternelle<br>Allemand — très bon",
-    profile_title: "Profil",
-    profile_text: "Professionnel expérimenté dans le domaine de la rectification d'outils et de surfaces planes, avec une solide expérience des machines CNC et un sens aigu de la qualité.",
-    experience_title: "Expérience",
-    experience_list: `
-      <div class="job"><small>05/07/2021 — 31/01/2025</small><strong>Schneider AG, Arlesheim (CH)</strong><div class="meta">Affûteur d'outils</div></div>
-      <div class="job"><small>01/11/2019 — 31/05/2021</small><strong>Tiba AG, Bubendorf (CH)</strong><div class="meta">Meuleur inox · montage</div></div>
-    `,
-    skills_title: "Compétences & équipements",
-    skills_list: "<li>Affûtage HSS, VHM</li><li>Machines CNC</li><li>MS-Office</li>",
-    hobby_title: "Loisir",
-    hobby_text: "Réparation d'anciennes montres",
-    contact_title: "Contact",
-    personal_title: "Infos personnelles",
-    personal: "Né le 07/11/1963 — Nationalité: Française",
-    footer_text: "© Aloise SIEGLER 2025"
-  },
-  de: {
-    address: "31 Rue de Kiffis, 68480 Wolschwiller, Deutschland<br>Geboren am 07.11.1963",
-    contact: "Telefon: +33 972 07 56 59<br>Mobil: +33 604 06 04 01<br>E-Mail: aloise.siegler@gmail.com",
-    license_title: "Führerschein",
-    license: "Klasse B — erworben am 03.04.1982",
-    languages_title: "Sprachen",
-    languages: "Französisch — Muttersprache<br>Deutsch — sehr gut",
-    profile_title: "Profil",
-    profile_text: "Erfahrener Fachmann im Werkzeug- und Flachschleifen, mit fundierter Erfahrung an CNC-Maschinen und ausgeprägtem Qualitätsbewusstsein.",
-    experience_title: "Berufserfahrung",
-    experience_list: `
-      <div class="job"><small>05.07.2021 — 31.01.2025</small><strong>Schneider AG, Arlesheim (CH)</strong><div class="meta">Werkzeugschleifer</div></div>
-      <div class="job"><small>01.11.2019 — 31.05.2021</small><strong>Tiba AG, Bubendorf (CH)</strong><div class="meta">Edelstahl-Schleifer · Montage</div></div>
-    `,
-    skills_title: "Fähigkeiten & Ausstattung",
-    skills_list: "<li>Werkzeugschleifen HSS, VHM</li><li>CNC-Maschinen</li><li>MS-Office</li>",
-    hobby_title: "Hobby",
-    hobby_text: "Reparatur alter Uhren",
-    contact_title: "Kontakt",
-    personal_title: "Persönliche Daten",
-    personal: "Geboren am 07.11.1963 — Staatsangehörigkeit: Französisch",
-    footer_text: "© Aloise SIEGLER 2025"
-  },
-  en: {
-    address: "31 Rue de Kiffis, 68480 Wolschwiller, France<br>Born 07/11/1963",
-    contact: "Phone: +33 972 07 56 59<br>Mobile: +33 604 06 04 01<br>E-mail: aloise.siegler@gmail.com",
-    license_title: "Driving License",
-    license: "Category B — obtained 03/04/1982",
-    languages_title: "Languages",
-    languages: "French — native<br>German — very good",
-    profile_title: "Profile",
-    profile_text: "Experienced specialist in tool and surface grinding, with extensive experience in CNC machines and a strong awareness of quality.",
-    experience_title: "Experience",
-    experience_list: `
-      <div class="job"><small>07/05/2021 — 01/31/2025</small><strong>Schneider AG, Arlesheim (CH)</strong><div class="meta">Tool Grinder</div></div>
-      <div class="job"><small>11/01/2019 — 05/31/2021</small><strong>Tiba AG, Bubendorf (CH)</strong><div class="meta">Stainless steel grinder · assembly</div></div>
-    `,
-    skills_title: "Skills & Equipment",
-    skills_list: "<li>Tool sharpening HSS, VHM</li><li>CNC machines</li><li>MS-Office</li>",
-    hobby_title: "Hobby",
-    hobby_text: "Repair of antique clocks",
-    contact_title: "Contact",
-    personal_title: "Personal Information",
-    personal: "Born 07/11/1963 — Nationality: French",
-    footer_text: "© Aloise SIEGLER 2025"
-  }
-};
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Aloïse Siegler — CV</title>
+  <style>
+    :root{
+      --bg:#f6f7fb; --card:#ffffff; --accent:#0b66c3; --text:#1b1b1b;
+      --muted:#6b7280; --radius:12px; --maxw:900px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:Inter, system-ui, Arial, sans-serif;
+      background:linear-gradient(180deg,var(--bg),#eef2f7 60%);
+      color:var(--text); padding:32px;
+    }
+    .container{max-width:var(--maxw); margin:0 auto; display:grid; gap:20px;}
+    header{display:flex; gap:20px; align-items:center;}
+    .photo img{
+      width:110px; height:110px; border-radius:12px;
+      object-fit:cover; border:2px solid #ccc;
+      box-shadow:0 6px 18px rgba(11,102,195,0.18);
+    }
+    .card{
+      background:var(--card); padding:20px; border-radius:var(--radius);
+      box-shadow:0 6px 18px rgba(12,20,30,0.06);
+    }
+    h1{margin:0; font-size:26px}
+    h2{margin:0 0 10px 0; font-size:18px; color:var(--accent)}
+    .meta{color:var(--muted); margin-top:6px; line-height:1.5;}
+    .meta br { display: block; margin-bottom: 4px; }
+    .grid{display:grid; grid-template-columns: 1fr 320px; gap:20px;}
+    .section{margin-bottom:14px}
+    .timeline{display:flex; flex-direction:column; gap:8px}
+    .job{padding:12px; border-radius:10px; background:#fbfdff; border:1px solid #eef4ff}
+    .job small{display:block; color:var(--muted); margin-bottom:6px}
+    ul{padding-left:18px}
+    .rightcol .card + .card{margin-top:14px}
+    footer{font-size:13px; color:var(--muted); text-align:center; margin-top:18px}
+    .lang-switch{display:flex; gap:10px; margin-bottom:10px;}
+    .lang-btn{
+      background:var(--accent); color:white; border:none; padding:6px 12px;
+      border-radius:6px; cursor:pointer; font-size:14px;
+    }
+    .lang-btn:hover{background:#094f96}
+    @media (max-width:860px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="lang-switch">
+      <button class="lang-btn" data-lang="fr">FR</button>
+      <button class="lang-btn" data-lang="de">DE</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+
+    <header class="card">
+      <div style="flex:1">
+        <div style="display:flex; align-items:center; gap:16px;">
+          <div class="photo">
+            <img src="photo-CV.png" alt="Photo d'Aloïse Siegler">
+          </div>
+          <div>
+            <h1>Aloïse Siegler</h1>
+            <div class="meta" data-i18n="address"></div>
+            <div class="meta" data-i18n="contact"></div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:right; min-width:200px">
+        <strong data-i18n="license_title"></strong>
+        <div class="meta" data-i18n="license"></div>
+        <div style="height:10px"></div>
+        <strong data-i18n="languages_title"></strong>
+        <div class="meta" data-i18n="languages"></div>
+      </div>
+    </header>
+
+    <div class="grid">
+      <main>
+        <section class="card section">
+          <h2 data-i18n="profile_title"></h2>
+          <p data-i18n="profile_text"></p>
+        </section>
+
+        <section class="card section">
+          <h2 data-i18n="experience_title"></h2>
+          <div class="timeline" data-i18n="experience_list"></div>
+        </section>
+
+        <section class="card section">
+          <h2 data-i18n="skills_title"></h2>
+          <ul data-i18n="skills_list"></ul>
+        </section>
+
+        <section class="card section">
+          <h2 data-i18n="hobby_title"></h2>
+          <p data-i18n="hobby_text"></p>
+        </section>
+      </main>
+
+      <aside class="rightcol">
+        <div class="card section">
+          <h2 data-i18n="contact_title"></h2>
+          <p class="meta" data-i18n="contact"></p>
+        </div>
+
+        <div class="card section">
+          <h2 data-i18n="languages_title"></h2>
+          <p class="meta" data-i18n="languages"></p>
+        </div>
+
+        <div class="card section">
+          <h2 data-i18n="license_title"></h2>
+          <p class="meta" data-i18n="license"></p>
+        </div>
+
+        <div class="card section">
+          <h2 data-i18n="personal_title"></h2>
+          <p class="meta" data-i18n="personal"></p>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="card">
+      <small data-i18n="footer_text"></small>
+    </footer>
+  </div>
+
+  <script>
+    const translations = {
+      fr: {
+        address: "31 Rue de Kiffis, 68480 Wolschwiller, France<br>Né le 07/11/1963 ",
+        contact: "Téléphone: +33 972 07 56 59<br>Mobile: +33 604 06 04 01<br>E-mail: aloise.siegler@gmail.com",
+        license_title: "Permis",
+        license: "Permis B — obtenu le 03/04/1982",
+        languages_title: "Langues",
+        languages: "Français — langue maternelle<br>Allemand — très bon",
+        profile_title: "Profil",
+        profile_text: "Professionnel expérimenté dans le domaine de la rectification d'outils et de surfaces planes, avec une solide expérience des machines CNC et un sens aigu de la qualité.",
+        experience_title: "Expérience",
+        experience_list: `
+          <div class="job"><small>05/07/2021 — 31/01/2025</small><strong>Schneider AG, Arlesheim (CH)</strong><div class="meta">Affûteur d'outils</div></div>
+          <div class="job"><small>01/11/2019 — 31/05/2021</small><strong>Tiba AG, Bubendorf (CH)</strong><div class="meta">Meuleur inox · montage</div></div>
+        `,
+        skills_title: "Compétences & équipements",
+        skills_list: "<li>Affûtage HSS, VHM</li><li>Machines CNC</li><li>MS-Office</li>",
+        hobby_title: "Loisir",
+        hobby_text: "Réparation d'anciennes montres",
+        contact_title: "Contact",
+        personal_title: "Infos personnelles",
+        personal: "Né le 07/11/1963 — Nationalité: Française",
+        footer_text: "© Aloise SIEGLER 2025"
+      },
+      de: {
+        address: "31 Rue de Kiffis, 68480 Wolschwiller, Deutschland<br>Geboren am 07.11.1963",
+        contact: "Telefon: +33 972 07 56 59<br>Mobil: +33 604 06 04 01<br>E-Mail: aloise.siegler@gmail.com",
+        license_title: "Führerschein",
+        license: "Klasse B — erworben am 03.04.1982",
+        languages_title: "Sprachen",
+        languages: "Französisch — Muttersprache<br>Deutsch — sehr gut",
+        profile_title: "Profil",
+        profile_text: "Erfahrener Fachmann im Werkzeug- und Flachschleifen, mit fundierter Erfahrung an CNC-Maschinen und ausgeprägtem Qualitätsbewusstsein.",
+        experience_title: "Berufserfahrung",
+        experience_list: `
+          <div class="job"><small>05.07.2021 — 31.01.2025</small><strong>Schneider AG, Arlesheim (CH)</strong><div class="meta">Werkzeugschleifer</div></div>
+          <div class="job"><small>01.11.2019 — 31.05.2021</small><strong>Tiba AG, Bubendorf (CH)</strong><div class="meta">Edelstahl-Schleifer · Montage</div></div>
+        `,
+        skills_title: "Fähigkeiten & Ausstattung",
+        skills_list: "<li>Werkzeugschleifen HSS, VHM</li><li>CNC-Maschinen</li><li>MS-Office</li>",
+        hobby_title: "Hobby",
+        hobby_text: "Reparatur alter Uhren",
+        contact_title: "Kontakt",
+        personal_title: "Persönliche Daten",
+        personal: "Geboren am 07.11.1963 — Staatsangehörigkeit: Französisch",
+        footer_text: "© Aloise SIEGLER 2025"
+      },
+      en: {
+        address: "31 Rue de Kiffis, 68480 Wolschwiller, France<br>Born 07/11/1963",
+        contact: "Phone: +33 972 07 56 59<br>Mobile: +33 604 06 04 01<br>E-mail: aloise.siegler@gmail.com",
+        license_title: "Driving License",
+        license: "Category B — obtained 03/04/1982",
+        languages_title: "Languages",
+        languages: "French — native<br>German — very good",
+        profile_title: "Profile",
+        profile_text: "Experienced specialist in tool and surface grinding, with extensive experience in CNC machines and a strong awareness of quality.",
+        experience_title: "Experience",
+        experience_list: `
+          <div class="job"><small>07/05/2021 — 01/31/2025</small><strong>Schneider AG, Arlesheim (CH)</strong><div class="meta">Tool Grinder</div></div>
+          <div class="job"><small>11/01/2019 — 05/31/2021</small><strong>Tiba AG, Bubendorf (CH)</strong><div class="meta">Stainless steel grinder · assembly</div></div>
+        `,
+        skills_title: "Skills & Equipment",
+        skills_list: "<li>Tool sharpening HSS, VHM</li><li>CNC machines</li><li>MS-Office</li>",
+        hobby_title: "Hobby",
+        hobby_text: "Repair of antique clocks",
+        contact_title: "Contact",
+        personal_title: "Personal Information",
+        personal: "Born 07/11/1963 — Nationality: French",
+        footer_text: "© Aloise SIEGLER 2025"
+      }
+    };
+
+    function setLanguage(lang) {
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        el.innerHTML = translations[lang][key] || "";
+      });
+    }
+
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        setLanguage(btn.dataset.lang);
+      });
+    });
+
+    // Langue par défaut = Allemand
+    setLanguage("de");
+  </script>
+</body>
+</html>
